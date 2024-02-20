@@ -12,7 +12,7 @@ from alphazero.NNetWrapper import NNetWrapper as NNet
 from alphazero.envs.alphaboop.alphaboop import Game
 from alphazero.envs.alphaboop.alphaboop import display as displayGame
 
-from alphazero.envs.alphaboop.train import args as args
+from alphazero.envs.alphaboop.train import args
 
 """
 use this script to play any two agents against each other, or play manually with
@@ -21,83 +21,17 @@ any agent.
 
 
 def calculateSingleMove():
-    # pieces = np.array([[0, 0, 0, 0, 0, 0],
-    #                    [0, 0, 0, 0, 0, 0],
-    #                    [0, 0, 0, 0, 0, 0],
-    #                    [0, 0, 1, 0, 0, 0],
-    #                    [0, 0, 0, 0, 0, 0],
-    #                    [0, 0, 0, 0, 0, 0]])
-    # player1 = np.where(pieces == 1, 1, 0)
-    # player2 = np.where(pieces == -1, 1, 0)
-    # colour = np.full_like(pieces, 0)
-    # turn = np.full_like(pieces, 1 / 100, dtype=np.float32)
-    #
-    # grey = 0
-    # orange = 1
-    #
-    # g = Game()
-    # g.set_board(pieces, orange)
-    #
-    # nn1 = NNet(Game, args)
-    # nn1.load_checkpoint('', 'AlphaMiniBoop.pkl')
-    #
-    # args.numMCTSSims = 100
-    # alphaBoop = MCTSPlayer(nn1, args=args, print_policy=True)
-    # print("Action: " + str(alphaBoop.play(g)))
-
-    # pieces = np.array([[ 2, 1, 2, 6, 0, 0],
-    #                    [ 0, 0, 0, 1, 0, 0],
-    #                    [-1, 0, 0, 0, 0,-1],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 2, 0, 0, 0],
-    #                    [ 1, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0]])
-
-    # pieces = np.array([[ 0, 1, 3, 3, 0, 0],
-    #                    [ 1,-1, 0, 0, 1, 0],
-    #                    [ 0, 0,-2, 0, 0, 0],
-    #                    [ 0, 0, 0, 1, 0, 0],
-    #                    [ 0, 0,-2, 0, 0, 0],
-    #                    [ 0,-2, 0, 0, 0, 1],
-    #                    [ 0, 0, 0, 0,-2, 0]])
-
-    # pieces = np.array([[ 3, 4, 0, 0, 0, 0],
-    #                    [ 0,-1, 0, 0, 1, 0],
-    #                    [ 0,-1, 0, 0, 0, 1],
-    #                    [ 1, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0,-1, 0, 1],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 1, 0, 0,-1, 0]])
-
-
-    # pieces = np.array([[ 0, 2, 3, 0, 0, 0],
-    #                    [-1, 0, 0,-1, 0, 0],
-    #                    [ 0,-1, 0, 0, 0,-1],
-    #                    [ 0, 0, 0, 0, 1, 0],
-    #                    [ 0,-1, 2, 2, 0, 0],
-    #                    [ 0, 0, 0, 0, 0,-1],
-    #                    [ 0, 0, 0, 1, 0, 1]])
-
-    pieces = np.array([[ 6, 6, 0, 0, 0, 0],
+    pieces = np.array([[ 8, 8, 0, 0, 0, 0],
                        [ 0, 0, 0, 0, 0, 0],
-                       [ 0, 0, 0,-1, 0, 0],
                        [ 0, 0, 0, 0, 0, 0],
-                       [ 0, 0,-1, 0, 1, 0],
                        [ 0, 0, 0, 0, 0, 0],
-                       [ 1, 0, 0, 0, 0, 0]])
-
-    # pieces = np.array([[ 8, 8, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0],
-    #                    [ 0, 0, 0, 0, 0, 0]])
+                       [ 0, 0, 0, 0, 0, 0],
+                       [ 0, 0, 0, 0, 0, 0],
+                       [ 0, 0, 0, 0, 0, 0]])
 
     grey = 0
     orange = 1
 
-    # g = Game2()
     g = Game()
     g.set_board(pieces, grey)
 
@@ -106,10 +40,8 @@ def calculateSingleMove():
     nn1 = NNet(Game, args)
     nn1.load_checkpoint('', 'AlphaBoop-109.pkl')
 
-
     alphaBoop = MCTSPlayer(nn1, args=args, print_policy=True)
     print("Action: " + str(alphaBoop.play(g)))
-
 
 if __name__ == '__main__':
     args.numMCTSSims = 1600
