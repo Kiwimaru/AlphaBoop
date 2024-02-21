@@ -13,7 +13,7 @@ Over time, AlphaBoop finds that the first player has a 60% win rate.
 
 AlphaBoop (Iteration 44) was tested against Ai Ai's model for Boop, and it won easily.
 
-This repo provides Iteration 109 - the highest elo it has achieved in its training.
+Due to the file size, Iteration 109 can be found in the dropbox here - https://www.dropbox.com/scl/fi/yrer84592g2edbxqv391j/AlphaBoop-109.pkl?rlkey=j1wp5n8la307d52h3y35fzggh&dl=0
 
 By generating a heatmap of the the neural network's policy, we can visualize which moves it thinks are good:
 
